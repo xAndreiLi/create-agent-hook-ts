@@ -18,7 +18,7 @@ Designed to be used in a .ts script that is run as a Copilot Hook command.
 			},
 		],
 	},
-};
+}
 ```
 
 ## Key Features
@@ -56,7 +56,7 @@ Every step for invoking createAgentHook has dynamic intellisense based on previo
 
 **Hook Event Names** - Displays all available hook events when first invoking createAgentHook
 
-![Hook event name example](hook-event-names.png)
+<img width="1022" height="301" alt="image" src="https://github.com/user-attachments/assets/0d2a2999-b81f-46c6-9201-a2333d64dd59" />
 
 ---
 
@@ -64,43 +64,41 @@ Every step for invoking createAgentHook has dynamic intellisense based on previo
 
 ex. PostToolUse vs SessionStart
 
-![PostToolUse example](post-tool-use-inputs.png)
-![SessionStart example](session-start-inputs.png)
+<img width="1025" height="311" alt="image" src="https://github.com/user-attachments/assets/5f65cb7f-65c3-4277-aed6-6d9dfe686674" />
+<img width="1037" height="284" alt="image" src="https://github.com/user-attachments/assets/f290b2d4-7d71-426d-ad72-250b0ed619eb" />
 
 ---
 
 **Output Fields** - Dynamically infers output type when defining return object
 
-![output example](output-example.png)
+<img width="1037" height="267" alt="image" src="https://github.com/user-attachments/assets/0a122ecf-dfc3-40f4-9001-cd832cf7114e" />
+<img width="1032" height="220" alt="image" src="https://github.com/user-attachments/assets/5b470771-3a0a-423c-b119-157bf114af1f" />
 
 ---
 
 **Tool Names** - Displays all default tool names for [Pre|Post]ToolUse Hooks when configuring targetToolNames
 
-![tool names example](tool-names.png)
-
+<img width="1031" height="388" alt="image" src="https://github.com/user-attachments/assets/d690866e-b96f-47c0-b6e2-8d72b3db734c" />
 
 ---
 
 **Tool Input** - Infers input.tool_input as the union of targetted tools
 
-(ex. `filePath` is the only shared input field among `[apply_patch, create_file, replace_string_in_file]`)
+(ex. `query` is the only shared input field among `[fetch_webpage, file_search]`)
 
-![union of targets example](union-targets.png)
+<img width="1040" height="248" alt="image" src="https://github.com/user-attachments/assets/42c260f3-50fd-42f9-b351-5f1c32fa26a4" />
 
 ---
 
 Provides a type-guard `isToolInputOf` to type narrow tool_input to access properly typed tool inputs for Copilot's default OpenAI/Claude Tools
 
-
-![type narrowing example](is-tool-input-of.png)
+<img width="1037" height="250" alt="image" src="https://github.com/user-attachments/assets/0a05be60-50dd-460e-82b2-21d41d8a5a21" />
 
 ---
 
 ### JSDoc Type descriptions that pull from the [VSCode Copilot Agent Hooks Documentation](https://code.visualstudio.com/docs/copilot/customization/hooks)
 
-![docs example](docs.png)
-
+<img width="1035" height="224" alt="image" src="https://github.com/user-attachments/assets/2bdb9e41-24ef-4340-a96e-815bd03a1cea" />
 
 ### Enriches tool_input and normalizes OpenAI and Claude Tool Inputs
 
