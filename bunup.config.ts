@@ -5,5 +5,5 @@ export default defineConfig({
 	entry: "src/index.ts",
 	format: ["esm", "cjs"],
 	plugins: [exports()],
-    target: "node"
+	target: "node",
 });

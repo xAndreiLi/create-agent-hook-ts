@@ -25,8 +25,8 @@
 	"scripts": {
 		"clean": "rm -rf dist .tsbuildinfo",
 		"build": "tsc && bunup",
-		"lint": "biome check",
-		"format": "biome format --write"
+		"format": "biome format --write",
+		"lint": "bun run format && biome check"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.7",

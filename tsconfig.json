@@ -1,8 +1,8 @@
 {
 	"compilerOptions": {
 		// Env Setup
-		"module": "nodenext",
-		"target": "es2024",
+		"module": "esnext",
+		"target": "esnext",
 
 		"lib": [
 			"ESNext.Array",
