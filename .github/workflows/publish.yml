@@ -17,6 +17,7 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
+    # Run Bun Validations
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -28,6 +29,12 @@ jobs:
         run: bun audit
       - name: Run tests
         run: bun run test
+
+    # Use node for release
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
