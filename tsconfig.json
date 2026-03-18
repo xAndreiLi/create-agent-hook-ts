@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		// Env Setup
+		"module": "nodenext",
+		"target": "es2024",
+
+		"lib": [
+			"ESNext.Array",
+			"ESNext.Collection",
+			"ESNext.Error",
+			"ESNext.Iterator",
+			"ESNext.Promise"
+		],
+
+		// Configuration
+		"composite": true,
+		"esModuleInterop": true,
+		"rootDir": "src",
+		"outDir": "dist",
+		"tsBuildInfoFile": "./.tsbuildinfo",
+		"isolatedDeclarations": true,
+
+		// Best practices
+		"strict": true,
+		"skipLibCheck": true,
+
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noPropertyAccessFromIndexSignature": true
+	},
+	"include": ["src/**/*"]
+}
