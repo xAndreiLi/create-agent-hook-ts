@@ -2,6 +2,7 @@
 	"name": "create-agent-hook-ts",
 	"description": "A TypeScript library for creating agent hooks.",
 	"version": "1.0.0",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/xAndreiLi/create-agent-hook-ts"
