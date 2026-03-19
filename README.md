@@ -1,6 +1,6 @@
 # create-agent-hook-ts
 
-A Typescript library to streamline the development of VSCode Copilot Agent Hooks. Provides a full suite of dynamic types that cover all parts of hook creation and additional utilities including the tool matching pattern defined in Claude Code that is not implemented in GitHub Copilot Hooks.
+Typescript library to streamline the development of VSCode Copilot Agent Hooks. Provides a full suite of dynamic types that cover all parts of hook creation and additional utilities including the tool matching pattern defined in Claude Code that is not implemented in GitHub Copilot Hooks.
 
 This library exposes a createAgentHook method that accepts the hook event being targetted, a callback defining the logic of your hook, and an optional list of tool names to target for [Pre|Post]ToolUse hooks.
 
