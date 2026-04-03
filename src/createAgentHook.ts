@@ -62,7 +62,7 @@ export async function createAgentHook<
 	eventName: EventName,
 	handler: (
 		input: HookInput<EventName, ToolNames[number]>,
-	) => Promisable<HookOutput<EventName, ToolNames[number]>> & OtherArgs,
+	) => Promisable<HookOutput<EventName, ToolNames[number]> & OtherArgs>,
 	targetTools?: ToolNames,
 ): Promise<void> {
 	const input = await getHookInput<EventName>();
