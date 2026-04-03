@@ -37,9 +37,10 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.7",
 		"@types/bun": "latest",
+		"@types/node": "^25.5.2",
 		"bunup": "^0.16.31"
 	},
 	"peerDependencies": {
-		"typescript": "^5"
+		"typescript": "^6"
 	}
 }

@@ -52,11 +52,11 @@ interface CommonHookInput {
 
 interface CommonHookOutput {
 	/** Set to false to stop processing (default: true) */
-	continue: boolean;
+	continue?: boolean;
 	/** Reason for stopping, when continue is false (shown to the user) */
-	stopReason: string;
+	stopReason?: string;
 	/** Warning message displayed to the user */
-	systemMessage: string;
+	systemMessage?: string;
 }
 
 interface SessionStartInput extends CommonHookInput {
@@ -66,10 +66,10 @@ interface SessionStartInput extends CommonHookInput {
 }
 
 interface SessionStartOutput extends CommonHookOutput {
-	hookSpecificOutput: {
-		hookEventName: "SessionStart";
+	hookSpecificOutput?: {
+		hookEventName?: "SessionStart";
 		/** Context added to the agent's conversation */
-		additionalContext: string;
+		additionalContext?: string;
 	};
 }
 
@@ -94,16 +94,16 @@ interface PreToolUseInput<ToolType extends keyof BuiltInToolTypeMap>
 
 interface PreToolUseOutput<ToolType extends keyof BuiltInToolTypeMap>
 	extends CommonHookOutput {
-	hookSpecificOutput: {
-		hookEventName: "PreToolUse";
+	hookSpecificOutput?: {
+		hookEventName?: "PreToolUse";
 		/** Controls tool approval */
-		permissionDecision: "allow" | "deny" | "ask";
+		permissionDecision?: "allow" | "deny" | "ask";
 		/** Reason shown to user */
-		permissionDecisionReason: string;
+		permissionDecisionReason?: string;
 		/** Modified tool input (optional) */
 		updatedInput?: BuiltInToolTypeMap[ToolType];
 		/** Extra context for the model */
-		additionalContext: string;
+		additionalContext?: string;
 	};
 }
 
@@ -125,10 +125,10 @@ interface PostToolUseOutput extends CommonHookOutput {
 	decision?: "block";
 	/** Reason for blocking (shown to the model) */
 	reason?: string;
-	hookSpecificOutput: {
-		hookEventName: "PostToolUse";
+	hookSpecificOutput?: {
+		hookEventName?: "PostToolUse";
 		/** Extra context injected into the conversation */
-		additionalContext: string;
+		additionalContext?: string;
 	};
 }
 
@@ -149,10 +149,10 @@ interface SubagentStartInput extends CommonHookInput {
 }
 
 interface SubagentStartOutput extends CommonHookOutput {
-	hookSpecificOutput: {
-		hookEventName: "SubagentStart";
+	hookSpecificOutput?: {
+		hookEventName?: "SubagentStart";
 		/** Context added to the subagent's conversation */
-		additionalContext: string;
+		additionalContext?: string;
 	};
 }
 
@@ -180,11 +180,11 @@ interface StopInput extends CommonHookInput {
 }
 
 interface StopOutput extends CommonHookOutput {
-	hookSpecificOutput: {
-		hookEventName: "Stop";
+	hookSpecificOutput?: {
+		hookEventName?: "Stop";
 		/** Prevent the agent from stopping */
-		decision: "block";
+		decision?: "block";
 		/** Required when decision is "block". Tells the agent why it should continue. */
-		reason: string;
+		reason?: string;
 	};
 }

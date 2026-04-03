@@ -7,17 +7,17 @@ export function enrichToolInput(
 ): void {
 	if (isToolInputOf(input, "apply_patch")) {
 		// Perform enrichment specific to the apply_patch tool
-		input = enrichApplyPatchInput(input);
+		enrichApplyPatchInput(input);
 	}
 }
 
 function enrichApplyPatchInput(
 	input: HookInput<"PreToolUse" | "PostToolUse", "apply_patch">,
-): HookInput<"PreToolUse" | "PostToolUse", "apply_patch"> {
+): void {
 	const applyPatchInput = input.tool_input.input;
 	const filePathMatch = applyPatchInput.match(/\*\*\* Update File: (.+)\n/);
 	if (!filePathMatch) {
-		return input;
+		return;
 	}
 	const filePath = filePathMatch[1];
 
@@ -25,7 +25,7 @@ function enrichApplyPatchInput(
 		/@@\n([\s\S]+?)\*\*\* End Patch/,
 	);
 	if (!diffSectionMatch) {
-		return input;
+		return;
 	}
 	const diffLines = diffSectionMatch[1]?.split("\n") || [];
 
@@ -38,15 +38,7 @@ function enrichApplyPatchInput(
 			oldLines.push(line.substring(1));
 		}
 	}
-	const newString = newLines.join("\n");
-	const oldString = oldLines.join("\n");
-	return {
-		...input,
-		tool_input: {
-			...input.tool_input,
-			filePath,
-			oldString,
-			newString,
-		},
-	};
+	input.tool_input.filePath = filePath;
+	input.tool_input.newString = newLines.join("\n");
+	input.tool_input.oldString = oldLines.join("\n");
 }
