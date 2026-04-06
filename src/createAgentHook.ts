@@ -1,7 +1,7 @@
 import { TOOLS_TO_ENRICH } from "./const";
 import { enrichToolInput } from "./enrich";
 import { getHookInput, sendHookOutput } from "./ioHandlers";
-import { isToolHook } from "./typeGaurds";
+import { isToolHook } from "./typeGuards";
 import type { OtherArgs, Promisable } from "./types/helpers";
 import type { HookEventName, HookInput, HookOutput } from "./types/hookUtils";
 import type { BuiltInToolTypeMap } from "./types/tools";

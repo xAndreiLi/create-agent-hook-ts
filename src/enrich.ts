@@ -1,4 +1,4 @@
-import { isToolInputOf } from "./typeGaurds";
+import { isToolInputOf } from "./typeGuards";
 import type { HookInput, ToolHookEventName } from "./types/hookUtils";
 import type { BuiltInToolTypeMap } from "./types/tools";
 

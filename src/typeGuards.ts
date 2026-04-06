@@ -6,7 +6,7 @@ import type { BuiltInToolTypeMap } from "./types/tools";
 export function isToolHook(
 	input: HookInput<keyof HookTypeMap, keyof BuiltInToolTypeMap>,
 ): input is HookInput<ToolHookEventName, keyof BuiltInToolTypeMap> {
-	return TOOL_HOOK_EVENTS.includes(input.hookEventName as ToolHookEventName);
+	return TOOL_HOOK_EVENTS.includes(input.hook_event_name as ToolHookEventName);
 }
 
 export function isToolInputOf<ToolType extends keyof BuiltInToolTypeMap>(
