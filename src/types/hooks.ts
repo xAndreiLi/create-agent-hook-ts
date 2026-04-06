@@ -43,9 +43,9 @@ interface CommonHookInput {
 	/** Current working directory of the agent process */
 	cwd: string;
 	/** Unique identifier for the agent session */
-	sessionId: string;
+	session_id: string;
 	/** The name of the hook event */
-	hookEventName: keyof HookTypeMap;
+	hook_event_name: keyof HookTypeMap;
 	/** Path to the transcript file for the session */
 	transcript_path: string;
 }
@@ -60,7 +60,7 @@ interface CommonHookOutput {
 }
 
 interface SessionStartInput extends CommonHookInput {
-	hookEventName: "SessionStart";
+	hook_event_name: "SessionStart";
 	/** How the session was started. Currently always "new". */
 	source: "new";
 }
@@ -74,7 +74,7 @@ interface SessionStartOutput extends CommonHookOutput {
 }
 
 interface UserPromptSubmitInput extends CommonHookInput {
-	hookEventName: "UserPromptSubmit";
+	hook_event_name: "UserPromptSubmit";
 	/** The text the user submitted */
 	prompt: string;
 }
@@ -83,7 +83,7 @@ interface UserPromptSubmitOutput extends CommonHookOutput {}
 
 interface PreToolUseInput<ToolType extends keyof BuiltInToolTypeMap>
 	extends CommonHookInput {
-	hookEventName: "PreToolUse";
+	hook_event_name: "PreToolUse";
 	/** The name of the tool being invoked */
 	tool_name: ToolType;
 	/** The input provided to the tool */
@@ -109,7 +109,7 @@ interface PreToolUseOutput<ToolType extends keyof BuiltInToolTypeMap>
 
 interface PostToolUseInput<ToolType extends keyof BuiltInToolTypeMap>
 	extends CommonHookInput {
-	hookEventName: "PostToolUse";
+	hook_event_name: "PostToolUse";
 	/** The name of the tool that was invoked */
 	tool_name: ToolType;
 	/** The input provided to the tool */
@@ -133,7 +133,7 @@ interface PostToolUseOutput extends CommonHookOutput {
 }
 
 interface PreCompactInput extends CommonHookInput {
-	hookEventName: "PreCompact";
+	hook_event_name: "PreCompact";
 	/** How the compaction was triggered. "auto" when the conversation is too long for the prompt budget. */
 	trigger: string;
 }
@@ -141,7 +141,7 @@ interface PreCompactInput extends CommonHookInput {
 interface PreCompactOutput extends CommonHookOutput {}
 
 interface SubagentStartInput extends CommonHookInput {
-	hookEventName: "SubagentStart";
+	hook_event_name: "SubagentStart";
 	/** Unique identifier for the subagent */
 	agent_id: string;
 	/** The agent name (for example, "Plan" for built-in agents or custom agent names) */
@@ -157,7 +157,7 @@ interface SubagentStartOutput extends CommonHookOutput {
 }
 
 interface SubagentStopInput extends CommonHookInput {
-	hookEventName: "SubagentStop";
+	hook_event_name: "SubagentStop";
 	/** Unique identifier for the subagent */
 	agent_id: string;
 	/** The agent name (for example, "Plan" for built-in agents or custom agent names) */
@@ -174,7 +174,7 @@ interface SubagentStopOutput extends CommonHookOutput {
 }
 
 interface StopInput extends CommonHookInput {
-	hookEventName: "Stop";
+	hook_event_name: "Stop";
 	/** true when the agent is already continuing as a result of a previous stop hook. Check this value to prevent the agent from running indefinitely. */
 	stop_hook_active: boolean;
 }

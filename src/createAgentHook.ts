@@ -66,7 +66,7 @@ export async function createAgentHook<
 	targetTools?: ToolNames,
 ): Promise<void> {
 	const input = await getHookInput<EventName>();
-	if (input.hookEventName !== eventName) {
+	if (input.hook_event_name !== eventName) {
 		process.exit(0);
 	}
 	if (isToolHook(input)) {
